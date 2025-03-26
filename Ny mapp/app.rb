@@ -1,6 +1,13 @@
+#hjälpfunktion som gör tal med basen 10 till en annan bas
 def from_bas_10_to_n(input, bas)
 
     system("cls")
+
+    b = input.to_i
+
+    input_float_part = (input - b).round(2)
+
+    input = input.to_i
 
     if bas > 36
         raise "Basen får inte vara störra än 36"
@@ -27,7 +34,6 @@ def from_bas_10_to_n(input, bas)
             input = skibidi
 
             result = rest + result
-            
 
         end
 
@@ -52,42 +58,98 @@ def from_bas_10_to_n(input, bas)
         
 
             result = rest + result
+            result = result.to_s
             
         end
 
+    end
+
+    if input_float_part != 0
+
+        array = []
+        b = (input_float_part) * ((bas ** 6)) 
+        b = b.to_i
+        d = nil
+
+
+        while d != 0
+
+
+            a = (b / bas)
+            
+            if a == 0
+                d = 0
+                c = b
+            else
+            
+                a_2 = a * bas
+                c = b - a_2
+
+                b = a
+
+            end
+
+            array << c.to_s           
+
+        end
+        array = array.reverse
+
+        result = result.to_s + "."
+        i = 0
+        while i < array.length
+
+            if array[i].to_i >= 10
+
+                x = array[i].to_i - 10
+                array[i] = string[x]
+
+            end
+            result << array[i]
+
+            i += 1
+
+        end
+
+        p result
     end
 
     return result
 
 end
 
+#om basen är 10 på talet som ska omvandlas
 def bas_10()
 
     system('cls')
 
-    puts "Skriv ett heltal med basen 10." 
-    input = gets.chomp
+    puts "Skriv ett tal med basen 10." 
+    puts "Det går bra med decimal tal."
 
-    input_2 = input.to_i
+    input = gets.chomp
+    input_2 = input.to_f
     input_2 = input_2.to_s  
-    if input != input_2
-        raise "Inte ett heltal eller ett tal med basen 10"
+    input = input.to_f
+    if input.to_s != input_2
+        raise "Inte ett tal eller ett tal med basen 10"
+    end
+    if input.to_f == 0.0
+        raise "Inte ett tal eller ett tal med basen 10. Eller att talet är 0"
     end
 
-    input = input.to_i
-    inputt = input
+    input = input.to_f
 
     puts "Vilken bas vill du skriva om talet till."
     bas = gets.chomp.to_i
 
     result = from_bas_10_to_n(input,bas)
 
-    result = [result,bas,inputt]
+    result = [result,bas,input]
 
     return result
 
 end
 
+#om basen är n på talet som ska omvandlas
 def bas_n()
 
     system('cls')
@@ -97,9 +159,10 @@ def bas_n()
     puts "Skriv ett heltal med valfri bas." 
     input = gets.chomp
 
-
     puts "Vilken bas har talet." 
     bas = gets.chomp.to_i
+
+    #check
 
     inputt = input[0].to_i
 
@@ -146,8 +209,6 @@ def bas_n()
 
     end
 
-    p n
-
     puts "Vilken bas vill du skriva om talet #{input} till med basen #{bas}" 
     bas_2 = gets.chomp.to_i
 
@@ -169,7 +230,9 @@ end
 
 system('cls')
 
-puts "Är basen på talet 10 skriv 1. Om basen på talet är n skriv 2." 
+puts "Hej!"
+puts "Detta program omvandlar tal i olika talbaser."
+puts "Är basen på talet du vill omvandla 10 skriv 1. Om basen på talet du vill omvandla är n skriv 2." 
 input = gets.chomp
 
 if input == "1"
