@@ -93,8 +93,6 @@ def from_bas_10_to_n(input, bas)
 
         end
         array = array.reverse
-        p array
-        sleep 4
 
         result = result.to_s + "."
         i = 0
