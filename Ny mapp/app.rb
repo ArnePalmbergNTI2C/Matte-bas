@@ -93,6 +93,8 @@ def from_bas_10_to_n(input, bas)
 
         end
         array = array.reverse
+        p array
+        sleep 4
 
         result = result.to_s + "."
         i = 0
@@ -110,7 +112,6 @@ def from_bas_10_to_n(input, bas)
 
         end
 
-        p result
     end
 
     return result
@@ -162,8 +163,6 @@ def bas_n()
     puts "Vilken bas har talet." 
     bas = gets.chomp.to_i
 
-    #check
-
     inputt = input[0].to_i
 
     if input[0] == inputt.to_s
@@ -208,6 +207,8 @@ def bas_n()
         i += 1
 
     end
+
+    p n
 
     puts "Vilken bas vill du skriva om talet #{input} till med basen #{bas}" 
     bas_2 = gets.chomp.to_i
