@@ -206,8 +206,6 @@ def bas_n()
 
     end
 
-    p n
-
     puts "Vilken bas vill du skriva om talet #{input} till med basen #{bas}" 
     bas_2 = gets.chomp.to_i
 
